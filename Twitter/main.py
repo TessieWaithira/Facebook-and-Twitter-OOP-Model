@@ -1,12 +1,11 @@
-$LOAD_PATH << '.'
 
-require 'user'
-require 'tweet'
-require 'comment'
+from user import User
+from tweet import Tweet
+from reply import Reply
 
 
-peter = User.new("ohara.invent", "ohara.invent@gmail.com", "Peter", "O'Hara Adu")
-tess = User.new("tess.waithira", "tess.waithira@gmail.com", "Teresa", "Waithira")
+peter = User("ohara.invent", "ohara.invent@gmail.com", "Peter", "O'Hara Adu")
+tess = User("tess.waithira", "tess.waithira@gmail.com", "Teresa", "Waithira")
 
 peter.create_tweet(
 	"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"\
@@ -37,25 +36,25 @@ tweet_by_tess = tess.create_tweet(
 	"#whoruntheworldgirls"
 )
 
-comment_by_peter = peter.create_comment(
+reply_by_peter = peter.create_reply(
 	"I miss Matthew :(",
 	tweet_by_tess
 )
 
-tess.create_comment(
+tess.create_reply(
 	"Awwww!",
-	comment_by_peter
+	reply_by_peter
 )
 
 
-# tess.list_follows
+tess.list_follows()
 peter.send_follow_request(tess)
-tess.accept_follow_requests
-# tess.list_follows
+tess.accept_follow_requests()
+tess.list_follows()
 
-peter.view_feed
-# peter.list_follows
-# tess.list_follows
-# tess.unfollow(peter)
-# peter.list_follows
-# tess.list_follows
+peter.view_feed()
+peter.list_follows()
+tess.list_follows()
+tess.unfollow(peter)
+peter.list_follows()
+tess.list_follows()

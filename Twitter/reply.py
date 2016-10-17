@@ -2,7 +2,7 @@ from tweet import Tweet
 
 class Reply(Tweet):
 	
-	def __init__(message, author, date, parent):
+	def __init__(self, message, author, date, parent):
 		self.message = message
 		self.author = author
 		self.date = date
@@ -12,15 +12,15 @@ class Reply(Tweet):
 		self.likes = []
 
 
-	def __str__():
+	def __str__(self):
 		result = ""
 		result += "{} ({})\n".format(self.author, self.date)
 		result += "{}\n".format(self.message)
-		result += "{} likes\n".format(self.likes.length)
-		if replies.length > 0:
+		result += "{} likes\n".format(len(self.likes))
+		if len(self.replies) > 0:
 			result += "\t------------------\n"
-			for reply in replies:
+			for reply in self.replies:
 				result += "\t"
-				result += reply.to_s
+				result += str(reply)
 
 		return result

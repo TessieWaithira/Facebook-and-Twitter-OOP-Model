@@ -172,8 +172,6 @@ class User
 
   def create_comment(message, parent)
     comment = Comment.new(message, self, Time.now, parent)
-    # puts parent
-    puts parent.class
     parent.comments.push(comment)
     comment
   end
