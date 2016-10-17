@@ -1,4 +1,5 @@
 $LOAD_PATH << '.'
+
 require 'set'
 require 'user'
 require 'friend_request'
